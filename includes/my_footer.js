@@ -60,6 +60,8 @@
     }
 
     element.innerHTML = content ? content : responseText;
+    
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
   });
   
   /*
