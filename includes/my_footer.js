@@ -18,8 +18,9 @@
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false);
     xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xmlHttp.responseType = 'document';
     xmlHttp.send(null);
-    var responseText = xmlHttp.responseText;
+    var responseText = xmlHttp.responseXML;
     
     console.log("response: " + responseText);
     
