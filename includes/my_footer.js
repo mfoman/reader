@@ -24,7 +24,7 @@
   xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
   xmlHttp.responseType = 'document';
 
-  xhr.onload = function () {
+  xmlHttp.onload = function () {
     var responseText = xmlHttp.responseXML;
 
     console.log("response: " + responseText);
