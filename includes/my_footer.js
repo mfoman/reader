@@ -59,13 +59,18 @@
     }
     */
     
-    var converter = new showdown.Converter(),
+    /*
+    var converter = new showdown.Converter();
+    converter.setFlavor('github');
     responseHtml = converter.makeHtml(responseText);
 
     element.innerHTML = responseHtml;
     
     console.log("Activating MathJax..");
     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"]);
+    */
+    
+    element.innerHTML = responseText;
   });
   
   /*
