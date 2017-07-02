@@ -15,6 +15,7 @@
   if (url != false) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xmlHttp.send(null);
     var responseText = xmlHttp.responseText;
     
