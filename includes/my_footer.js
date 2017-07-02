@@ -24,8 +24,8 @@
   xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
   xmlHttp.responseType = 'document';
 
-  xmlHttp.onload = function () {
-    var responseText = xmlHttp.responseXML;
+  xmlHttp.addEventListener("load", function () {
+    var responseText = this.responseXML;
 
     console.log("response: " + responseText);
 
@@ -39,7 +39,7 @@
     }
 
     element.innerHTML = content ? content : responseText;
-  };
+  });
 
   xmlHttp.send(null);
 })();
