@@ -48,8 +48,7 @@
     
     var responseText = data;
 
-    console.log("response: " + responseText);
-
+    /*
     if (responseText) {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(responseText, "text/xml");
@@ -58,8 +57,12 @@
 
       content = xmlDoc.getElementsByClassName("entry-content").innerHTML;
     }
+    */
+    
+    var converter = new showdown.Converter(),
+    responseHtml = converter.makeHtml(responseText);
 
-    element.innerHTML = content ? content : responseText;
+    element.innerHTML = responseHtml;
     
     console.log("Activating MathJax..");
     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"]);
