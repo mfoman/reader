@@ -33,5 +33,5 @@
     }
   }
   
-  element.innerHTML = content;
+  element.innerHTML = content ? content : responseText;
 })();
