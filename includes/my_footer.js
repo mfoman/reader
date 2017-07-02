@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, MathJax) {
   var url = false;
   
   var params = location.search ? new URLSearchParams(location.search) : false;
@@ -62,7 +62,7 @@
     element.innerHTML = content ? content : responseText;
     
     console.log("Activating MathJax..")
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"]);
   });
   
   /*
@@ -74,4 +74,4 @@
   xmlHttp.responseType = 'document';
   xmlHttp.send();
   */
-})(jQuery);
+})(jQuery, MathJax);
