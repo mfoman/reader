@@ -1,1 +1,3 @@
-alert(document.referrer);
+(function () {
+  alert("hello");
+})()
