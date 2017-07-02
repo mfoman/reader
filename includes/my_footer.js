@@ -19,9 +19,8 @@
     return false;
   }
 
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.addEventListener("load", function () {
-    var responseText = this.responseXML;
+  function reqListener() {
+    var responseText = this.responseText;
 
     console.log("response: " + responseText);
 
@@ -35,9 +34,12 @@
     }
 
     element.innerHTML = content ? content : responseText;
-  });
+  }
+  
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.addEventListener("load", reqListener);
   xmlHttp.open("GET", url);
-  xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-  xmlHttp.responseType = 'document';
-  xmlHttp.send(null);
+  //xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+  //xmlHttp.responseType = 'document';
+  xmlHttp.send();
 })();
