@@ -9,6 +9,8 @@
     url = params.get("q");
   }
   
+  console.log("url: " + url);
+  
   var element = document.getElementById("reader-content");
   var content = "Sorry, no dice!"
   
@@ -19,9 +21,14 @@
     xmlHttp.send(null);
     var responseText = xmlHttp.responseText;
     
+    console.log("response: " + responseText);
+    
     if (responseText) {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(responseText, "text/xml");
+      
+      console.log("parsed: " + xmlDoc);
+      
       content = xmlDoc.getElementsByClassName("entry-content").innerHTML;
     }
   }
