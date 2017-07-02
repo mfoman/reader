@@ -20,7 +20,7 @@
   }
 
   function reqListener() {
-    var responseText = this.responseText;
+    var responseText = this.responseXML;
 
     console.log("response: " + responseText);
 
