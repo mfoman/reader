@@ -20,10 +20,6 @@
   }
 
   var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", url);
-  xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-  xmlHttp.responseType = 'document';
-
   xmlHttp.addEventListener("load", function () {
     var responseText = this.responseXML;
 
@@ -40,6 +36,8 @@
 
     element.innerHTML = content ? content : responseText;
   });
-
+  xmlHttp.open("GET", url);
+  xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+  xmlHttp.responseType = 'document';
   xmlHttp.send(null);
 })();
