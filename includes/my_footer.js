@@ -1,15 +1,29 @@
 (function () {
-  var search = location.search ? location.search : false;
+  var url = false;
   
-  var refer = window.referrer ? window.referrer : false;
+  var params = location.search ? new URLSearchParams(location.search) : false;
   
-  if (refer != false) {
+  if (params == false) { 
+    url = window.referrer ? window.referrer : false;
+  } else {
+    url = params.get("q");
   }
   
-  var content = document.getElementById("reader-content");
+  var element = document.getElementById("reader-content");
+  var content = "Sorry, no dice!"
   
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", url, false);
-  xmlHttp.send(null);
-  return xmlHttp.responseText;
+  if (url != false) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, false);
+    xmlHttp.send(null);
+    var responseText = xmlHttp.responseText;
+    
+    if (responseText) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(responseText, "text/xml");
+      content = xmlDoc.getElementsByClassName("entry-content").innerHTML;
+    }
+  }
+  
+  element.innerHTML = content;
 })();
