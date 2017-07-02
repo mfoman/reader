@@ -19,6 +19,7 @@
     return false;
   }
 
+  /*
   function reqListener(returnData) {
     console.log(returnData);
     
@@ -37,12 +38,31 @@
 
     element.innerHTML = content ? content : responseText;
   }
+  */
   
   $.ajax({
     url: url,
-    dataType: "xml",
-    callback: reqListener
-  });
+    dataType: "xml"
+  }).done(data) {
+  
+    console.log(data);
+    
+    var responseText = data;
+
+    console.log("response: " + responseText);
+
+    if (responseText) {
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(responseText, "text/xml");
+
+      console.log("parsed: " + xmlDoc);
+
+      content = xmlDoc.getElementsByClassName("entry-content").innerHTML;
+    }
+
+    element.innerHTML = content ? content : responseText;
+  
+  };
   
   /*
   var xmlHttp = new XMLHttpRequest();
