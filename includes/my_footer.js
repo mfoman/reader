@@ -39,6 +39,7 @@
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.addEventListener("load", reqListener);
   xmlHttp.open("GET", url);
+  xmlHttp.overrideMimeType('application/xml');
   //xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
   xmlHttp.responseType = 'document';
   xmlHttp.send();
