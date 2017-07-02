@@ -43,8 +43,7 @@
   $.ajax({
     url: url,
     dataType: "xml"
-  }).done(data) {
-  
+  }).done(data, function(data) {
     console.log(data);
     
     var responseText = data;
@@ -61,8 +60,7 @@
     }
 
     element.innerHTML = content ? content : responseText;
-  
-  };
+  });
   
   /*
   var xmlHttp = new XMLHttpRequest();
