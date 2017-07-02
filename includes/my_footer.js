@@ -14,25 +14,32 @@
   var element = document.getElementById("reader-content");
   var content = "Sorry, no dice!"
   
-  if (url != false) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", url, false);
-    xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xmlHttp.responseType = 'document';
-    xmlHttp.send(null);
+  if (url == false) {
+    element.innerHTML = content;
+    return false;
+  }
+
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", url);
+  xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+  xmlHttp.responseType = 'document';
+
+  xhr.onload = function () {
     var responseText = xmlHttp.responseXML;
-    
+
     console.log("response: " + responseText);
-    
+
     if (responseText) {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(responseText, "text/xml");
-      
+
       console.log("parsed: " + xmlDoc);
-      
+
       content = xmlDoc.getElementsByClassName("entry-content").innerHTML;
     }
-  }
-  
-  element.innerHTML = content ? content : responseText;
+
+    element.innerHTML = content ? content : responseText;
+  };
+
+  xmlHttp.send(null);
 })();
