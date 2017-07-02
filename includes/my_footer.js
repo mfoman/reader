@@ -42,7 +42,7 @@
   
   $.ajax({
     url: url,
-    dataType: "xml"
+    //dataType: "xml"
   }).done(function(data) {
     console.log(data);
     
