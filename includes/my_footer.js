@@ -19,8 +19,10 @@
     return false;
   }
 
-  function reqListener() {
-    var responseText = this.responseXML;
+  function reqListener(returnData) {
+    console.log(returnData);
+    
+    var responseText = returnData;
 
     console.log("response: " + responseText);
 
@@ -36,6 +38,13 @@
     element.innerHTML = content ? content : responseText;
   }
   
+  $.ajax({
+    url: url,
+    dataType: "xml",
+    callback: reqListener
+  });
+  
+  /*
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.addEventListener("load", reqListener);
   xmlHttp.open("GET", url);
@@ -43,4 +52,5 @@
   //xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
   xmlHttp.responseType = 'document';
   xmlHttp.send();
+  */
 })();
