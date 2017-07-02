@@ -65,12 +65,11 @@
     responseHtml = converter.makeHtml(responseText);
 
     element.innerHTML = responseHtml;
-    
-    console.log("Activating MathJax..");
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"]);
     */
     
     element.innerHTML = responseText;
+    console.log("Activating MathJax..");
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"]);
   });
   
   /*
