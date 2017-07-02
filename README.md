@@ -1,4 +1,4 @@
-hash2
+hash3
 
 {% include my_content.html %}
 
