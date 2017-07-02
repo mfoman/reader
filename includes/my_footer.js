@@ -1,4 +1,4 @@
-(function ($, MathJax) {
+(function ($) {
   var url = false;
   
   var params = location.search ? new URLSearchParams(location.search) : false;
@@ -74,4 +74,4 @@
   xmlHttp.responseType = 'document';
   xmlHttp.send();
   */
-})(jQuery, MathJax);
+})(jQuery);
