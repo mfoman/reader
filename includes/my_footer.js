@@ -61,6 +61,7 @@
 
     element.innerHTML = content ? content : responseText;
     
+    console.log("Activating MathJax..")
     MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
   });
   
