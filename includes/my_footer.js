@@ -42,6 +42,7 @@
   
   $.ajax({
     url: url,
+    crossDomain: true,
     //dataType: "xml"
   }).done(function(data) {
     console.log(data);
