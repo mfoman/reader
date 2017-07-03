@@ -67,9 +67,12 @@
     element.innerHTML = responseHtml;
     */
     
-    element.innerHTML = marked(responseText);
+    element.innerHTML = responseText;
     console.log("Activating MathJax..");
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"]);
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,"reader-content"], function() {
+      element.innerHTML = marked(element.innerHTML);
+    });
+    // marked
   });
   
   /*
